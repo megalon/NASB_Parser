@@ -33,7 +33,7 @@ namespace JsonDumper
             using (var fsread = File.OpenRead(fullPath))
                 ser = new BulkSerializeReader(fsread);
             watch.Stop();
-            Console.WriteLine($"Parsing took: {watch.Elapsed}");
+            Console.WriteLine($"Parsing {Path.GetFileNameWithoutExtension(fullPath)} took: {watch.Elapsed}");
             watch.Reset();
             watch.Start();
             var data = new SerialMoveset(ser);

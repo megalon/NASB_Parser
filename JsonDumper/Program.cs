@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Collections.Generic;
 
 namespace JsonDumper
 {
@@ -116,19 +117,51 @@ namespace JsonDumper
             Console.WriteLine($"Writeout took: {watch.Elapsed}");
         }
 
+        // Loop through directories with split data
+        private static void ReadAndJoinSplitFiles(string jsonDir, string textDir)
+        {
+            foreach (var dir in Directory.GetDirectories(jsonDir))
+            {
+                List<IdState> idStates = new List<IdState>();
+                foreach (var path in Directory.EnumerateFiles(dir))
+                {
+
+                    Console.WriteLine(path);
+                    var data = new JsonTextReader(File.OpenText(path));
+                    var state = serialization.Deserialize<IdState>(data);
+                    idStates.Add(state);
+                }
+
+                var outpFile = Path.Combine(textDir, Path.GetFileNameWithoutExtension(dir)) + "_new.txt";
+                if (File.Exists(outpFile))
+                    File.Delete(outpFile);
+                var writer = new BulkSerializeWriter();
+
+                SerialMoveset serialMoveset = new SerialMoveset();
+                serialMoveset.SetStates(idStates);
+                serialMoveset.Write(writer);
+                using var fs = File.OpenWrite(outpFile);
+                using var dsts = new StreamWriter(fs);
+                writer.Serialize(dsts);
+            }
+        }
+
         private static void Main(string[] args)
         {
             var dst = "output";
 
             if (Directory.Exists(dst))
             {
-                var dstOut = Path.Combine(dst, "text_data");
-                if (!Directory.Exists(dstOut))
-                    Directory.CreateDirectory(dstOut);
-                foreach (var path in Directory.EnumerateFiles(dst))
-                {
-                    ReadWrite(path, dstOut);
-                }
+                var textOut = Path.Combine(dst, "text_data");
+                if (!Directory.Exists(textOut))
+                    Directory.CreateDirectory(textOut);
+
+                var jsonOut = Path.Combine(dst, "json");
+                if (!Directory.Exists(jsonOut))
+                    Directory.CreateDirectory(jsonOut);
+
+                ReadAndJoinSplitFiles(jsonOut, textOut);
+
                 Console.WriteLine("Success Reading/Writing!");
             }
             else
@@ -140,18 +173,21 @@ namespace JsonDumper
                     Console.WriteLine("Enter a valid path!");
                     p = Console.ReadLine();
                 }
-                Directory.CreateDirectory(dst);
+
+                var jsonOut = Path.Combine(dst, "json");
+                Directory.CreateDirectory(jsonOut);
+
                 if (Directory.Exists(p))
                 {
                     foreach (var path in Directory.EnumerateFiles(p))
                     {
-                        Write(dst, path, true);
+                        Write(jsonOut, path, true);
                     }
                     Console.WriteLine("Success!");
                 }
                 else if (File.Exists(p))
                 {
-                    Write(dst, p, true);
+                    Write(jsonOut, p, true);
                     Console.WriteLine("Success!");
                 }
             }

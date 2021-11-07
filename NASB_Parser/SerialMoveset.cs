@@ -24,5 +24,10 @@ namespace NASB_Parser
             writer.Write(0);
             writer.Write(States);
         }
+
+        public void SetStates(List<IdState> states)
+        {
+            this.States = states;
+        } 
     }
 }

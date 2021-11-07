@@ -24,7 +24,7 @@ namespace JsonDumper
                 },
         };
 
-        private static void Write(string dst, string fullPath)
+        private static void Write(string dst, string fullPath, bool splitFileByState)
         {
             var watch = new Stopwatch();
             watch.Start();
@@ -40,16 +40,36 @@ namespace JsonDumper
             Console.WriteLine($"Creation of type structure took: {watch.Elapsed}");
             watch.Reset();
             Console.WriteLine("Json dump...");
-            var outpFile = Path.GetFileNameWithoutExtension(fullPath);
-            outpFile = Path.Combine(dst, outpFile) + ".json";
+
+            if (splitFileByState)
+            {
+                var outDir = Path.Combine(dst, Path.GetFileNameWithoutExtension(fullPath));
+                if (!Directory.Exists(outDir))
+                    Directory.CreateDirectory(outDir);
+                foreach (IdState state in data.States)
+                {
+                    var outpFile = Path.Combine(outDir, state.Id) + ".json";
+                    WriteSpecificFile(outpFile, state);
+                }
+            } else
+            {
+                var outpFile = Path.GetFileNameWithoutExtension(fullPath);
+                outpFile = Path.Combine(dst, outpFile) + ".json";
+                WriteSpecificFile(outpFile, data);
+            }
+
             watch.Start();
+            watch.Stop();
+            Console.WriteLine($"Creation of JSON took: {watch.Elapsed}");
+        }
+
+        private static void WriteSpecificFile(string outpFile, object data)
+        {
             if (File.Exists(outpFile))
                 File.Delete(outpFile);
             using var fs = File.OpenWrite(outpFile);
             using var writer = new StreamWriter(fs);
             serialization.Serialize(writer, data);
-            watch.Stop();
-            Console.WriteLine($"Creation of JSON took: {watch.Elapsed}");
         }
 
         private static void Read(string path)
@@ -99,6 +119,7 @@ namespace JsonDumper
         private static void Main(string[] args)
         {
             var dst = "output";
+
             if (Directory.Exists(dst))
             {
                 var dstOut = Path.Combine(dst, "text_data");
@@ -124,13 +145,13 @@ namespace JsonDumper
                 {
                     foreach (var path in Directory.EnumerateFiles(p))
                     {
-                        Write(dst, path);
+                        Write(dst, path, true);
                     }
                     Console.WriteLine("Success!");
                 }
                 else if (File.Exists(p))
                 {
-                    Write(dst, p);
+                    Write(dst, p, true);
                     Console.WriteLine("Success!");
                 }
             }

@@ -27,13 +27,15 @@ namespace NASB_Parser.ObjectSources
 
         public static ObjectSource Read(BulkSerializeReader reader)
         {
-            return (TypeId)reader.PeekInt() switch
+            ObjectSource objectSource = null;
+            switch ((TypeId)reader.PeekInt())
             {
-                TypeId.FloatId => new OSFloat(reader),
-                TypeId.Vector2Id => new OSVector2(reader),
-                TypeId.BaseIdentifier => new ObjectSource(reader),
-                _ => throw new ReadException(reader, $"Could not parse valid {nameof(ObjectSource)} type from: {reader.PeekInt()}!"),
-            };
+                case TypeId.FloatId: objectSource = new OSFloat(reader); break;
+                case TypeId.Vector2Id: objectSource = new OSVector2(reader); break;
+                case TypeId.BaseIdentifier: objectSource = new ObjectSource(reader); break;
+                default: throw new ReadException(reader, $"Could not parse valid {nameof(ObjectSource)} type from: {reader.PeekInt()}!");
+            }
+            return objectSource;
         }
 
         public enum TypeId

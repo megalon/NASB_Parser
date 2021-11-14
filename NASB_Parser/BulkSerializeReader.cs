@@ -9,8 +9,14 @@ namespace NASB_Parser
     {
         public BulkSerializeReader(Stream s)
         {
-            using var reader = new StreamReader(s);
-            Parse(reader);
+            StreamReader reader = new StreamReader(s); ;
+            try
+            {
+                Parse(reader);
+            } finally
+            {
+                reader.Dispose();
+            }
         }
 
         public BulkSerializeReader(string data)

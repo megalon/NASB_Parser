@@ -63,7 +63,7 @@ namespace NASB_Parser
 
         public void Write<T>(T ser) where T : ISerializable, new()
         {
-            if (ser is null)
+            if (ser == null)
                 ser = new T();
             ser.Write(this);
         }

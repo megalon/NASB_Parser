@@ -27,21 +27,23 @@ namespace NASB_Parser.CheckThings
 
         public static CheckThing Read(BulkSerializeReader reader)
         {
-            return (TypeId)reader.PeekInt() switch
+            CheckThing thing = null;
+            switch ((TypeId)reader.PeekInt())
             {
-                TypeId.MultipleId => new CTMultiple(reader),
-                TypeId.CompareId => new CTCompareFloat(reader),
-                TypeId.DoubleTapId => new CTDoubleTapId(reader),
-                TypeId.InputId => new CTInput(reader),
-                TypeId.InputSeriesId => new CTInputSeries(reader),
-                TypeId.TechId => new CTCheckTech(reader),
-                TypeId.GrabId => new CTGrabId(reader),
-                TypeId.GrabAgentId => new CTGrabbedAgent(reader),
-                TypeId.SkinId => new CTSkin(reader),
-                TypeId.MoveId => new CTMove(reader),
-                TypeId.BaseIdentifier => new CheckThing(reader),
-                _ => throw new ReadException(reader, $"Could not parse valid {nameof(CheckThing)} type from: {reader.PeekInt()}!"),
-            };
+                case TypeId.MultipleId: thing = new CTMultiple(reader); break;
+                case TypeId.CompareId: thing = new CTCompareFloat(reader); break;
+                case TypeId.DoubleTapId: thing = new CTDoubleTapId(reader); break;
+                case TypeId.InputId: thing = new CTInput(reader); break;
+                case TypeId.InputSeriesId: thing = new CTInputSeries(reader); break;
+                case TypeId.TechId: thing = new CTCheckTech(reader); break;
+                case TypeId.GrabId: thing = new CTGrabId(reader); break;
+                case TypeId.GrabAgentId: thing = new CTGrabbedAgent(reader); break;
+                case TypeId.SkinId: thing = new CTSkin(reader); break;
+                case TypeId.MoveId: thing = new CTMove(reader); break;
+                case TypeId.BaseIdentifier: thing = new CheckThing(reader); break;
+                default: throw new ReadException(reader, $"Could not parse valid {nameof(CheckThing)} type from: {reader.PeekInt()}!");
+            }
+            return thing;
         }
 
         public enum TypeId

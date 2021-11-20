@@ -25,6 +25,7 @@ namespace NASB_Parser.StateActions
             writer.Write(Map);
         }
 
+        [Serializable]
         public class MapPoint : ISerializable
         {
             public bool RootAnim { get; set; }

@@ -30,6 +30,7 @@ namespace NASB_Parser.StateActions
             writer.Write(Config);
         }
 
+        [Serializable]
         public class StandardConfig : ISerializable
         {
             public byte DontCheck0 { get; set; }

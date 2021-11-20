@@ -29,6 +29,7 @@ namespace NASB_Parser.StateActions
             writer.Write(Dynamics);
         }
 
+        [Serializable]
         public class MessageDynamic : ISerializable
         {
             public string Id { get; set; }

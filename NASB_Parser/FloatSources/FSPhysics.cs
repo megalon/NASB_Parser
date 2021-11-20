@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.FloatSources
 {
+	[Serializable]
     public class FSPhysics : FloatSource
     {
         public PhysicsAttributes Attribute { get; set; }

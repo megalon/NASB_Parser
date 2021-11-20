@@ -1,10 +1,11 @@
-﻿using NASB_Parser.CheckThings;
+using NASB_Parser.CheckThings;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SACheckThing : StateAction
     {
         public CheckThing CheckThing { get; set; }

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class HurtSetSetup : ISerializable
     {
         public List<HurtBone> HurtBones { get; private set; } = new List<HurtBone>();

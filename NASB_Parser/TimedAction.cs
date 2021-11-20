@@ -1,10 +1,11 @@
-﻿using NASB_Parser.StateActions;
+using NASB_Parser.StateActions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser
 {
+	[Serializable]
     public class TimedAction : ISerializable
     {
         public float AtFrame { get; set; }

@@ -1,10 +1,11 @@
-﻿using NASB_Parser.FloatSources;
+using NASB_Parser.FloatSources;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.CheckThings
 {
+	[Serializable]
     public class CTCompareFloat : CheckThing
     {
         public CheckWay Way { get; set; }

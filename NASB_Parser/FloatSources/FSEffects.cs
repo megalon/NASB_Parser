@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.FloatSources
 {
+	[Serializable]
     public class FSEffects : FloatSource
     {
         public string LocalFxId { get; set; }

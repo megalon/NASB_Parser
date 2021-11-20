@@ -25,6 +25,7 @@ namespace NASB_Parser.StateActions
             writer.Write(Sets);
         }
 
+        [Serializable]
         public class SetFloat : ISerializable
         {
             public FloatSource Target { get; set; }

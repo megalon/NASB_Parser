@@ -107,7 +107,8 @@ namespace NASB_Parser.StateActions
             writer.Write(AddedSpawns);
         }
 
-        public struct AddedSpawnData : ISerializable
+        [Serializable]
+        public class AddedSpawnData : ISerializable
         {
             public string SpawnedAgentDataId { get; set; }
             public FloatSource SpawnedAgentDataSetValue { get; set; }

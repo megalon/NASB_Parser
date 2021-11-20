@@ -112,6 +112,10 @@ namespace NASB_Parser.StateActions
         {
             public string SpawnedAgentDataId { get; set; }
             public FloatSource SpawnedAgentDataSetValue { get; set; }
+            public AddedSpawnData()
+            {
+
+            }
 
             public AddedSpawnData(BulkSerializeReader reader)
             {

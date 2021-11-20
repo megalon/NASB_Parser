@@ -1,10 +1,11 @@
-﻿using NASB_Parser.Jumps;
+using NASB_Parser.Jumps;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAJump : StateAction
     {
         public string JumpId { get; set; }

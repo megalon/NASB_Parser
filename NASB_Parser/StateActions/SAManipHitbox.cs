@@ -1,10 +1,11 @@
-﻿using NASB_Parser.FloatSources;
+using NASB_Parser.FloatSources;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAManipHitbox : StateAction
     {
         public List<HBM> Manips { get; private set; } = new List<HBM>();

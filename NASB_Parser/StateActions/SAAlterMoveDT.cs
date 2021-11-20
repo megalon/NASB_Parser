@@ -1,10 +1,11 @@
-﻿using NASB_Parser.FloatSources;
+using NASB_Parser.FloatSources;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAAlterMoveDT : StateAction
     {
         public bool ClearAMDT { get; set; }

@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using NASB_Parser.ObjectSources;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAGUAMessageObject : ISerializable
     {
         public string PlainMessage { get; set; }

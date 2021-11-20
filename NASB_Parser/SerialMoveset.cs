@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser
 {
+	[Serializable]
     public class SerialMoveset : ISerializable
     {
         public List<IdState> States { get; private set; } = new List<IdState>();

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAOnHit : StateAction
     {
         public bool Hitbox { get; set; }

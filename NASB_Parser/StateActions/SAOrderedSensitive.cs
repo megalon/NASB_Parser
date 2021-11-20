@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class SAOrderedSensitive : StateAction
     {
         public List<StateAction> Actions { get; private set; } = new List<StateAction>();

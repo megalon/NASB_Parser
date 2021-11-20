@@ -1,10 +1,11 @@
-﻿using NASB_Parser.FloatSources;
+using NASB_Parser.FloatSources;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.ObjectSources
 {
+	[Serializable]
     public class OSVector2 : ObjectSource
     {
         public FloatSource X { get; set; }

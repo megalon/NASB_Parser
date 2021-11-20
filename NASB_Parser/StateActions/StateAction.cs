@@ -1,10 +1,11 @@
-﻿using NASB_Parser.StateActions;
+using NASB_Parser.StateActions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
     public class StateAction : ISerializable
     {
         public TypeId TID { get; private set; }

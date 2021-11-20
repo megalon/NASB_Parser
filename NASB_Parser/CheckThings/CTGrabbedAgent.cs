@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.CheckThings
 {
+	[Serializable]
     public class CTGrabbedAgent : CheckThing
     {
         public List<string> MatchTags { get; private set;  } = new List<string>();

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NASB_Parser.CheckThings
 {
+	[Serializable]
     public class CheckThing : ISerializable
     {
         public TypeId TID { get; private set; }

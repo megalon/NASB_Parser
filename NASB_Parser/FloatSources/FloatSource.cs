@@ -5,7 +5,7 @@ using System.Text;
 namespace NASB_Parser.FloatSources
 {
 	[Serializable]
-    public abstract class FloatSource : ISerializable
+    public class FloatSource : ISerializable
     {
         public TypeId TID { get; private set; }
         public int Version { get; private set; }

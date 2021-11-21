@@ -92,6 +92,7 @@ namespace NASB_Parser.StateActions
 
         public enum CtrlSeg
         {
+            None,
             Neutral = 1,
             Up,
             Down = 4,

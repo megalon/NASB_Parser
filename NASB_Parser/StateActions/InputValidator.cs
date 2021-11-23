@@ -16,7 +16,7 @@ namespace NASB_Parser.StateActions
         public CtrlSegCompare SegCompare { get; set; }
         public ValidatorMultiCompare MultiCompare { get; set; }
         public FloatSource FloatContainer { get; set; }
-        public List<InputValidator> Validators { get; private set; } = new List<InputValidator>();
+        public List<InputValidator> Validators { get; set; } = new List<InputValidator>();
 
         public InputValidator()
         {

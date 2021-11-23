@@ -8,7 +8,7 @@ namespace NASB_Parser.StateActions
 	[Serializable]
     public class SAManipHitbox : StateAction
     {
-        public List<HBM> Manips { get; private set; } = new List<HBM>();
+        public List<HBM> Manips { get; set; } = new List<HBM>();
 
         public SAManipHitbox()
         {

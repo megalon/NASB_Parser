@@ -8,7 +8,7 @@ namespace NASB_Parser.StateActions
 	[Serializable]
     public class SASetFloatTarget : StateAction
     {
-        public List<SetFloat> Sets { get; private set; } = new List<SetFloat>();
+        public List<SetFloat> Sets { get; set; } = new List<SetFloat>();
 
         public SASetFloatTarget()
         {

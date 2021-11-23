@@ -9,7 +9,7 @@ namespace NASB_Parser
     {
         public string CustomCall { get; set; }
         // Needed for system.text.json
-        public List<TimedAction> Timeline { get; private set; } = new List<TimedAction>();
+        public List<TimedAction> Timeline { get; set; } = new List<TimedAction>();
 
         public AgentState()
         {

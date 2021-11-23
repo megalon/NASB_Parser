@@ -8,8 +8,8 @@ namespace NASB_Parser.StateActions
 	[Serializable]
     public class StateAction : ISerializable
     {
-        public TypeId TID { get; private set; }
-        public int Version { get; private set; }
+        public TypeId TID { get; set; }
+        public int Version { get; set; }
 
         public StateAction()
         {

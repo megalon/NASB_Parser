@@ -15,7 +15,7 @@ namespace NASB_Parser.StateActions
         public Vector3 WorldOffset { get; set; }
         public SAGUAMessageObject MessageObject { get; set; }
         public bool CustomSpawnMovement { get; set; }
-        public List<SpawnMovement> Movements { get; private set; } = new List<SpawnMovement>();
+        public List<SpawnMovement> Movements { get; set; } = new List<SpawnMovement>();
         public FloatSource ResultOrderAdded { get; set; }
 
         public SASpawnAgent()

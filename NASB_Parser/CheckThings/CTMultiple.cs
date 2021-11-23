@@ -8,7 +8,7 @@ namespace NASB_Parser.CheckThings
     public class CTMultiple : CheckThing
     {
         public CheckMatch Match { get; set; } = CheckMatch.All;
-        public List<CheckThing> Checklist { get; private set; } = new List<CheckThing>();
+        public List<CheckThing> Checklist { get; set; } = new List<CheckThing>();
 
         public CTMultiple()
         {

@@ -7,7 +7,7 @@ namespace NASB_Parser.CheckThings
 	[Serializable]
     public class CTGrabbedAgent : CheckThing
     {
-        public List<string> MatchTags { get; private set;  } = new List<string>();
+        public List<string> MatchTags { get; set;  } = new List<string>();
 
         public CTGrabbedAgent()
         {

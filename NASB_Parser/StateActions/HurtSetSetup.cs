@@ -7,7 +7,7 @@ namespace NASB_Parser.StateActions
 	[Serializable]
     public class HurtSetSetup : ISerializable
     {
-        public List<HurtBone> HurtBones { get; private set; } = new List<HurtBone>();
+        public List<HurtBone> HurtBones { get; set; } = new List<HurtBone>();
 
         public HurtSetSetup()
         {

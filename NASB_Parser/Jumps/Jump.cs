@@ -7,8 +7,8 @@ namespace NASB_Parser.Jumps
 	[Serializable]
     public class Jump : ISerializable
     {
-        public TypeId TID { get; private set; }
-        public int Version { get; private set; }
+        public TypeId TID { get; set; }
+        public int Version { get; set; }
 
         public Jump()
         {

@@ -7,7 +7,7 @@ namespace NASB_Parser
 	[Serializable]
     public class SerialMoveset : ISerializable
     {
-        public List<IdState> States { get; private set; } = new List<IdState>();
+        public List<IdState> States { get; set; } = new List<IdState>();
 
         public SerialMoveset()
         {

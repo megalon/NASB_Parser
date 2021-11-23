@@ -5,12 +5,17 @@ using System.Text;
 namespace NASB_Parser.StateActions
 {
 	[Serializable]
-    public struct AnimConfig : ISerializable
+    public class AnimConfig : ISerializable
     {
         public float Rate { get; set; }
         public float Weight { get; set; }
         public WrapMode Wrap { get; set; }
         public bool ClingToFrames { get; set; }
+
+        public AnimConfig()
+        {
+
+        }
 
         public AnimConfig(BulkSerializeReader reader)
         {

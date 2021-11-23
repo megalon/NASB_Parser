@@ -8,7 +8,7 @@ namespace NASB_Parser.StateActions
 	[Serializable]
     public class SAMapAnimation : StateAction
     {
-        public List<MapPoint> Map { get; private set; } = new List<MapPoint>();
+        public List<MapPoint> Map { get; set; } = new List<MapPoint>();
 
         public SAMapAnimation()
         {

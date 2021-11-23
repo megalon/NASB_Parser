@@ -8,7 +8,7 @@ namespace NASB_Parser
     public class IdState : ISerializable
     {
         public string Id { get; set; }
-        public List<string> Tags { get; private set; } = new List<string>();
+        public List<string> Tags { get; set; } = new List<string>();
         public AgentState State { get; set; }
 
         public IdState()

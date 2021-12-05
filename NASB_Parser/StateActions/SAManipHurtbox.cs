@@ -45,6 +45,7 @@ namespace NASB_Parser.StateActions
             LocalOffsetZ2nd
         }
 
+        [Serializable]
         public class HBM : ISerializable
         {
             public Manip Manip { get; set; }

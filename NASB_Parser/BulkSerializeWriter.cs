@@ -37,7 +37,7 @@ namespace NASB_Parser
 
         public void AddString(string x)
         {
-            strings.Add(x);
+            strings.Add(x == null ? "" : x);
         }
 
         public void Write(int x)

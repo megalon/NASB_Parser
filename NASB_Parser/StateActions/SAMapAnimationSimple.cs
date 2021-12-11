@@ -5,6 +5,7 @@ using System.Text;
 
 namespace NASB_Parser.StateActions
 {
+    [Serializable]
     public class SAMapAnimationSimple : StateAction
     {
         public string AnimId { get; set; }
@@ -31,6 +32,7 @@ namespace NASB_Parser.StateActions
             writer.Write(Map);
         }
 
+        [Serializable]
         public class MapPoint : ISerializable
         {
             public FloatSource OffsetFrame { get; set; }

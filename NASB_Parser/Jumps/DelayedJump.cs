@@ -1,7 +1,9 @@
 ﻿using NASB_Parser.FloatSources;
+using System;
 
 namespace NASB_Parser.Jumps
 {
+    [Serializable]
     public class DelayedJump : Jump
     {
         public FloatSource Height { get; set; }

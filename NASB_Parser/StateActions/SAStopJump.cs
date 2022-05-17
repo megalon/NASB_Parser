@@ -9,7 +9,7 @@ namespace NASB_Parser.StateActions
     {
         public bool StopAll { get; set; }
         public string JumpId { get; set; }
-        public List<string> JumpIds { get; private set; } = new List<string>();
+        public List<string> JumpIds { get; set; } = new List<string>();
 
         public SAStopJump()
         { }

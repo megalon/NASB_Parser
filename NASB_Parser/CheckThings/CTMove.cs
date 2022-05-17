@@ -10,7 +10,7 @@ namespace NASB_Parser.CheckThings
         public string MovesetId { get; set; }
         public bool Previous { get; set; }
         public bool Not { get; set; }
-        public List<string> Extras { get; private set; } = new List<string>();
+        public List<string> Extras { get; set; } = new List<string>();
 
         public CTMove()
         {

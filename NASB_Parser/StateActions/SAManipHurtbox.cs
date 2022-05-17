@@ -56,7 +56,7 @@ namespace NASB_Parser.StateActions
             public FloatSource Source { get; set; }
             public string Bone { get; set; }
             public string Bone2 { get; set; }
-            public int Version { get; private set; }
+            public int Version { get; set; }
 
             public HBM()
             { }

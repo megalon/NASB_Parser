@@ -17,18 +17,19 @@ namespace NASB_Parser.StateActions
         internal SAFindFloor(BulkSerializeReader reader) : base(reader)
         {
             if (Version < 1)
+            {
                 SeekRange = reader.ReadFloat();
+                Range = new FSValue(SeekRange);
+            }
             else
+            {
                 Range = FloatSource.Read(reader);
+            }
         }
 
         public override void Write(BulkSerializeWriter writer)
         {
             base.Write(writer);
-            
-            if (Range == null)
-                Range = new FSValue(SeekRange);
-
             writer.Write(Range);
         }
     }

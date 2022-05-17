@@ -108,11 +108,14 @@ namespace NASB_Parser.StateActions
                 case TypeId.ForceExtraInputId: stateAction = new SAForceExtraInputCheck(reader); break;
                 case TypeId.LaunchGrabbedCustomId: stateAction = new SALaunchGrabbedCustom(reader); break;
                 case TypeId.MapAnimSimpleId: stateAction = new SAMapAnimationSimple(reader); break;
+                case TypeId.PersistLocalFXId: stateAction = new SAPersistLocalFX(reader); break;
+                case TypeId.OnLeaveParentId: stateAction = new SAOnLeaveParent(reader); break;
                 case TypeId.BaseIdentifier: stateAction = new StateAction(reader); break;
                 default:  throw new ReadException(reader, $"Could not parse valid {nameof(StateAction)} type from: {reader.PeekInt()}!");
             }
             return stateAction;
     }
+ 
 
         public enum TypeId
         {
@@ -191,7 +194,9 @@ namespace NASB_Parser.StateActions
             SampleAnimId,
             ForceExtraInputId,
             LaunchGrabbedCustomId,
-            MapAnimSimpleId
+            MapAnimSimpleId,
+            PersistLocalFXId,
+            OnLeaveParentId
         }
     }
 }

@@ -36,7 +36,7 @@ namespace NASB_Parser.Jumps
                 case TypeId.AirdashId: jump = new AirDashJump(reader); break;
                 case TypeId.KnockbackId: jump = new KnockbackJump(reader); break;
                 case TypeId.DelayedId: jump = new DelayedJump(reader); break;
-                case TypeId.KnockbackAltId: jump = new KnockbackAltJump(reader); break;
+                case TypeId.ClampMomentumId: jump = new ClampMomentumJump(reader); break;
                 case TypeId.BaseIdentifier: jump = new Jump(reader); break;
                 // This is more aggressive than the game parser for better error detection.
                 default: throw new ReadException(reader, $"Could not parse valid {nameof(Jump)} type from: {reader.PeekInt()}!");
@@ -52,7 +52,7 @@ namespace NASB_Parser.Jumps
             AirdashId,
             KnockbackId,
             DelayedId,
-            KnockbackAltId
+            ClampMomentumId
         }
     }
 }

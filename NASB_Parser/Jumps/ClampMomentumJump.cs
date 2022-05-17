@@ -4,6 +4,7 @@ using System.Text;
 
 namespace NASB_Parser.Jumps
 {
+	[Serializable]
 	public class ClampMomentumJump : Jump
 	{
 		public ClampMomentumJump()

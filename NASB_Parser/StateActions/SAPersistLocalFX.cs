@@ -1,8 +1,10 @@
 ﻿
 using NASB_Parser.FloatSources;
+using System;
 
 namespace NASB_Parser.StateActions
 {
+	[Serializable]
 	public class SAPersistLocalFX : StateAction
 	{
 		public string Id { get; set; }

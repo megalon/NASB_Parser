@@ -1,5 +1,8 @@
-﻿namespace NASB_Parser.StateActions
+﻿using System;
+
+namespace NASB_Parser.StateActions
 {
+	[Serializable]
 	public class SAOnLeaveParent : StateAction
 	{
 		public StateAction Action { get; set; }

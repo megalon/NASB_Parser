@@ -56,20 +56,20 @@ namespace NASB_Parser.StateActions
             public FloatSource Source { get; set; }
             public string Bone { get; set; }
             public string Bone2 { get; set; }
-            public int Version { get; set; }
+            public int VersionHBM { get; set; }
 
             public HBM()
             { }
 
             internal HBM(BulkSerializeReader reader)
             {
-                Version = reader.ReadInt();
+                VersionHBM = reader.ReadInt();
                 Manip = (Manip)reader.ReadInt();
                 Hurtbox = reader.ReadInt();
                 Type = (HurtType)reader.ReadInt();
                 Source = FloatSource.Read(reader);
 
-                if (Version > 0 && (Manip == Manip.Bone || Manip == Manip.Bone2))
+                if (VersionHBM > 0 && (Manip == Manip.Bone || Manip == Manip.Bone2))
                 {
                     Bone = reader.ReadString();
                     if (Manip == Manip.Bone2)
@@ -81,7 +81,7 @@ namespace NASB_Parser.StateActions
 
             public void Write(BulkSerializeWriter writer)
             {
-                writer.Write(Version);
+                writer.Write(VersionHBM);
                 writer.Write(Manip);
                 writer.Write(Hurtbox);
                 writer.Write(Type);
